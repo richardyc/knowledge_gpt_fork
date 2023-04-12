@@ -22,7 +22,7 @@ def clear_submit():
 st.set_page_config(page_title="KnowledgeGPT", page_icon="📖", layout="wide")
 st.header("📖KnowledgeGPT")
 
-sidebar()
+# sidebar()
 
 uploaded_file = st.file_uploader(
     "Upload a pdf, docx, or txt file",
