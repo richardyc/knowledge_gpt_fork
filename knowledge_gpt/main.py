@@ -1,5 +1,6 @@
 import streamlit as st
 from openai.error import OpenAIError
+import os
 
 from knowledge_gpt.components.sidebar import sidebar
 from knowledge_gpt.utils import (
@@ -23,6 +24,8 @@ st.set_page_config(page_title="KnowledgeGPT", page_icon="📖", layout="wide")
 st.header("📖KnowledgeGPT")
 
 # sidebar()
+if not st.session_state.get("OPENAI_API_KEY"):
+    st.session_state["OPENAI_API_KEY"] = os.environ.get("OPENAI_API_KEY", "")
 
 uploaded_file = st.file_uploader(
     "Upload a pdf, docx, or txt file",
