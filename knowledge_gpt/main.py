@@ -21,7 +21,7 @@ def clear_submit():
 
 
 st.set_page_config(page_title="KnowledgeGPT", page_icon="📖", layout="wide")
-st.header("冲冲冲")
+st.header("PDF 文件助手")
 
 # sidebar()
 if not st.session_state.get("OPENAI_API_KEY"):
