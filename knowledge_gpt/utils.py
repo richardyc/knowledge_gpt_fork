@@ -6,7 +6,7 @@ import docx2txt
 import streamlit as st
 from langchain.chains.qa_with_sources import load_qa_with_sources_chain
 from langchain.docstore.document import Document
-from langchain.llms import OpenAI
+from langchain.chat_models import ChatOpenAI
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.vectorstores import VectorStore
 from langchain.vectorstores.faiss import FAISS
@@ -120,8 +120,8 @@ def get_answer(docs: List[Document], query: str) -> Dict[str, Any]:
     # Get the answer
 
     chain = load_qa_with_sources_chain(
-        OpenAI(
-            temperature=0, openai_api_key=st.session_state.get("OPENAI_API_KEY")
+        ChatOpenAI(
+            temperature=0, openai_api_key=st.session_state.get("OPENAI_API_KEY"), model_name="gpt-4"
         ),  # type: ignore
         chain_type="stuff",
         prompt=STUFF_PROMPT,
